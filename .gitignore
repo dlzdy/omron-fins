@@ -1,71 +1,52 @@
-log/
-data/
-
-# =========================
-# Java
-# =========================
-*.class
-
-# Mobile Tools for Java (J2ME) #
-.mtj.tmp/
-
-# Package Files #
-*.jar
-*.war
-*.ear
-
-# =========================
-# Maven
-# =========================
-target/
-pom.xml.tag
-pom.xml.releaseBackup
-pom.xml.next
-release.properties
-
-# =========================
-# Eclipse
-# =========================
-*.pydevproject
-.metadata
-.gradle
-bin/
-tmp/
-*.tmp
-*.bak
-*.swp
-*~.nib
-local.properties
-.settings/
-.loadpath
-.project
+# Created by .ignore support plugin (hsz.mobi)
+### xkcoding-后端 template
+### Spring Boot ###
+/target/
+!.mvn/wrapper/maven-wrapper.jar
+**/target/
+**/*.iml
+### STS ###
+.apt_generated
 .classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
 
-# External tool builders
-.externalToolBuilders/
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+out/
+gen/
 
-# Locally stored "Eclipse launch configurations"
-*.launch
+### NetBeans ###
+/nbproject/private/
+/build/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
 
-# CDT-specific
-.cproject
+### LOGS ###
+logs/
+*.log
 
-# PDT-specific
-.buildpath
+### Mac OS ###
+.DS_Store
 
-# TeXlipse plugin
-.texlipse
-
-# =========================
-# Windows detritus
-# =========================
-
-# Windows image file caches
-Thumbs.db
-ehthumbs.db
-
-# Folder config file
-Desktop.ini
-
-# Recycle Bin used on file shares
-$RECYCLE.BIN/
+### VS CODE ###
+.vscode/
+*.pdb
+/doc/gencode
+/cscec-ibms-service/cscec-park/doc/cscec-park
+/cscec-ibms-service/cscec-park/doc/cscec-park.zip
+# word 临时文件
+~$*.doc
+~$*.docx
+~$*.ppt
+~$*.pptx
+rebel.xml
+.flattened-pom.xml

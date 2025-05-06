@@ -1,12 +1,13 @@
-package io.bessel.fins.master.handlers;
+package io.github.mookins.omron.fins.master.handlers;
 
+import io.github.mookins.omron.fins.tcp.FinsTcpCommandCode;
+import io.github.mookins.omron.fins.tcp.FinsTcpErrorCode;
+import io.github.mookins.omron.fins.tcp.FinsTcpFrame;
+import io.github.mookins.omron.fins.tcp.FinsTcpFrameBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import io.bessel.fins.tcp.FinsTcpCommandCode;
-import io.bessel.fins.tcp.FinsTcpErrorCode;
-import io.bessel.fins.tcp.FinsTcpFrame;
-import io.bessel.fins.tcp.FinsTcpFrameBuilder;
+
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandlerContext;
@@ -33,7 +34,7 @@ public class FinsTcpMasterCommandHandler extends SimpleChannelInboundHandler<Fin
 			// We don't parse the FINS frame here so that we can reuse the FINS byte parser which can be
 			// used for UDP transport
 			logger.debug("Extracting payload and kicking it down the pipeline");
-			
+
 			context.fireChannelRead(Unpooled.wrappedBuffer(finsTcpFrame.getData()));
 			break;
 
@@ -71,7 +72,7 @@ public class FinsTcpMasterCommandHandler extends SimpleChannelInboundHandler<Fin
 				.setErrorCode(FinsTcpErrorCode.NORMAL)
 				.setData(data)
 				.build();
-		
+
 		return finsTcpFrame;
 	}
 

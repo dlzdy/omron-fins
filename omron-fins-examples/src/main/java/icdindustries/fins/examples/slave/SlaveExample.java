@@ -5,49 +5,49 @@ import java.util.Optional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import io.bessel.fins.FinsEndCode;
-import io.bessel.fins.MemoryAreaWriteCommandHandler;
-import io.bessel.fins.commands.FinsMemoryAreaWriteCommand;
-import io.bessel.fins.commands.FinsMemoryAreaWriteResponse;
-import io.bessel.fins.commands.FinsMemoryAreaWriteWordCommand;
-import io.bessel.fins.slave.FinsNettyTcpSlave;
+import io.github.mookins.omron.fins.FinsEndCode;
+import io.github.mookins.omron.fins.MemoryAreaWriteCommandHandler;
+import io.github.mookins.omron.fins.commands.FinsMemoryAreaWriteCommand;
+import io.github.mookins.omron.fins.commands.FinsMemoryAreaWriteResponse;
+import io.github.mookins.omron.fins.commands.FinsMemoryAreaWriteWordCommand;
+import io.github.mookins.omron.fins.slave.FinsNettyTcpSlave;
 
 public class SlaveExample {
 
 	final static Logger logger = LoggerFactory.getLogger(SlaveExample.class);
-	
+
 	public static void main(String... args) throws Exception {
-		FinsNettyTcpSlave server = new FinsNettyTcpSlave("ics-triton", 9600);
-		
+		FinsNettyTcpSlave server = new FinsNettyTcpSlave("127.0.0.1", 9600);
+
 		server.setMemoryAreaWriteHandler(new MemoryAreaWriteCommandHandler() {
-			
+
 			@Override
 			public FinsMemoryAreaWriteResponse handle(FinsMemoryAreaWriteCommand command) {
 				Optional<FinsEndCode> endCode = Optional.empty();
-				
+
 				final String formatText = "%s(%s)";
-				
+
 				if (command instanceof FinsMemoryAreaWriteWordCommand) {
 					FinsMemoryAreaWriteWordCommand wordCommand = (FinsMemoryAreaWriteWordCommand) command;
 					Short value = wordCommand.getItems().get(0);
-					
+
 					Boolean alarmState = (value & 1) == 1;
-					
+
 					String eventText = String.format(formatText + " => 0x%x", "Unknown_Event", alarmState,
 							command.getIoAddress().getAddress());
-					
+
 					String siteId = "1000";
 					String alarmName = "Unknown Alarm";
-					
+
 					switch (command.getIoAddress().getMemoryArea()) {
 					default:
 						break;
-						
+
 					case DM_WORD:
 						switch (command.getIoAddress().getAddress()) {
 						default:
 							break;
-							
+
 						case 20000:
 							endCode = Optional.of(FinsEndCode.NORMAL_COMPLETION);
 							alarmName = "Mains Fail";
@@ -155,13 +155,13 @@ public class SlaveExample {
 
 					logger.info(eventText);
 				}
-				
+
 				return new FinsMemoryAreaWriteResponse(endCode.orElse(FinsEndCode.WRITE_NOT_POSSIBLE__PROTECTED));
 			}
 		});
-		
+
 		server.start();
-		
+
 		Runtime.getRuntime().addShutdownHook(new Thread() {
 			public void run() {
 				server.shutdown();

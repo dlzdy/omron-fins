@@ -44,5 +44,7 @@
 		<module>omron-fins-udp-slave</module>
 		<module>omron-fins-tcp-slave</module>
 		<module>omron-fins-tester</module>
+		<module>omron-fins-tcp-master</module>
+		<module>omron-fins-examples</module>
 	</modules>
 </project>

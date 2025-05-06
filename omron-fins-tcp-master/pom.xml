@@ -5,9 +5,11 @@
 
 	<parent>
 		<groupId>io.github.mookins</groupId>
-		<artifactId>omron-fins</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
+		<artifactId>omron-fins-parent</artifactId>
+		<version>0.0.1</version>
+		<relativePath>../omron-fins-parent/pom.xml</relativePath>
 	</parent>
+
 
 	<name>Omron FINS/TCP Master</name>
 	<description>Omron FINS/TCP master</description>
@@ -16,12 +18,12 @@
 	<dependencies>
 		<dependency>
 			<groupId>${project.groupId}</groupId>
-			<artifactId>fins-core</artifactId>
+			<artifactId>omron-fins-core</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>${project.groupId}</groupId>
-			<artifactId>fins-codec</artifactId>
+			<artifactId>omron-fins-codec</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 
@@ -34,12 +36,6 @@
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
-			<version>${slf4j.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>ch.qos.logback</groupId>
-			<artifactId>logback-classic</artifactId>
-			<version>${logback.version}</version>
 		</dependency>
 	</dependencies>
 </project>

@@ -3,10 +3,12 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
+
 	<parent>
 		<groupId>io.github.mookins</groupId>
-		<artifactId>omron-fins</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
+		<artifactId>omron-fins-parent</artifactId>
+		<version>0.0.1</version>
+		<relativePath>../omron-fins-parent/pom.xml</relativePath>
 	</parent>
 
 	<name>Omron FINS Examples</name>
@@ -16,19 +18,18 @@
 	<dependencies>
 		<dependency>
 			<groupId>${project.groupId}</groupId>
-			<artifactId>fins-tcp-master</artifactId>
+			<artifactId>omron-fins-tcp-master</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>${project.groupId}</groupId>
-			<artifactId>fins-tcp-slave</artifactId>
+			<artifactId>omron-fins-tcp-slave</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-simple</artifactId>
-			<version>${slf4j.version}</version>
+			<artifactId>slf4j-api</artifactId>
 		</dependency>
 	</dependencies>
 
