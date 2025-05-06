@@ -12,7 +12,7 @@
 
 	<name>Omron FINS Tester</name>
 	<description>Omron FINS testing application</description>
-	<artifactId>omron-fins-tester</artifactId>
+	<artifactId>omron-fins-udp-examples</artifactId>
 
 	<dependencies>
 		<dependency>

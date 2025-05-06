@@ -13,7 +13,7 @@
 
 	<name>Omron FINS Examples</name>
 	<description>Omron FINS and FINS/TCP examples</description>
-	<artifactId>omron-fins-examples</artifactId>
+	<artifactId>omron-fins-tcp-examples</artifactId>
 
 	<dependencies>
 		<dependency>
@@ -47,7 +47,7 @@
 					</execution>
 				</executions>
 				<configuration>
-					<mainClass>icdindustries.fins.examples.slave.SlaveExample</mainClass>
+					<mainClass>icdindustries.fins.examples.slave.TcpSlaveExample</mainClass>
 				</configuration>
 			</plugin>
 		</plugins>

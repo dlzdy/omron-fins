@@ -210,15 +210,13 @@ public class FinsNettyTcpMaster implements FinsMaster {
 	@Override
 	public String readString(FinsNodeAddress destination, FinsIoAddress address, int wordLength)
 			throws FinsMasterException {
-		// TODO Auto-generated method stub
-		return null;
+		throw new UnsupportedOperationException("Not implemented yet");
 	}
 
 	@Override
 	public String readString(FinsNodeAddress destination, FinsIoAddress address, short wordLength)
 			throws FinsMasterException {
-		// TODO Auto-generated method stub
-		return null;
+		throw new UnsupportedOperationException("Not implemented yet");
 	}
 
 	@Override

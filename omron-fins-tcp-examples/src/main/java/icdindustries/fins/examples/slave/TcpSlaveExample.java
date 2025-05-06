@@ -12,12 +12,12 @@ import io.github.mookins.omron.fins.commands.FinsMemoryAreaWriteResponse;
 import io.github.mookins.omron.fins.commands.FinsMemoryAreaWriteWordCommand;
 import io.github.mookins.omron.fins.slave.FinsNettyTcpSlave;
 
-public class SlaveExample {
+public class TcpSlaveExample {
 
-	final static Logger logger = LoggerFactory.getLogger(SlaveExample.class);
+	final static Logger logger = LoggerFactory.getLogger(TcpSlaveExample.class);
 
 	public static void main(String... args) throws Exception {
-		FinsNettyTcpSlave server = new FinsNettyTcpSlave("127.0.0.1", 9600);
+		FinsNettyTcpSlave server = new FinsNettyTcpSlave("0.0.0.0", 9600);
 
 		server.setMemoryAreaWriteHandler(new MemoryAreaWriteCommandHandler() {
 

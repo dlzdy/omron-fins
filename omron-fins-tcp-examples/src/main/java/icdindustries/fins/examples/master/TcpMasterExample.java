@@ -13,9 +13,9 @@ import io.github.mookins.omron.fins.FinsMasterException;
 import io.github.mookins.omron.fins.FinsNodeAddress;
 import io.github.mookins.omron.fins.master.FinsNettyTcpMaster;
 
-public class MasterExample {
+public class TcpMasterExample {
 
-	final static Logger logger = LoggerFactory.getLogger(MasterExample.class);
+	final static Logger logger = LoggerFactory.getLogger(TcpMasterExample.class);
 
 	public static void main(String... args) throws InterruptedException {
 		ScheduledExecutorService executor = Executors.newScheduledThreadPool(5);
